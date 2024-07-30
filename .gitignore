@@ -1,1 +1,12 @@
 .vscode/
+# Ignore all files without an extension
+*
+
+# Do not ignore .gitignore
+!.gitignore
+
+# Do not ignore directories
+!*/
+
+# Do not ignore .cpp files
+!*.cpp
