@@ -10,3 +10,6 @@
 
 # Do not ignore .cpp files
 !*.cpp
+
+#Do not ignore .png files
+!*.png
