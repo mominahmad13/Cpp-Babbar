@@ -18,7 +18,7 @@ int main ()
       while ( m!=0 ) 
        {
           mask = (mask << 1) | 1 ;
-          m = m >> 1 ;   // right shift is done x-times and this x-times is done at position where required last one of a number in binary form is present like in 5 ( 101 : last one at third position from left )
+          m = m >> 1 ;   // right shift is done x-times and this shift of x-times is done till required last '1' bit from left should not arrive  like in 5 ( 101 : last one at third position from left )
        }
           int ans = ( ~n ) & mask ; 
           cout << ans << endl  ;
