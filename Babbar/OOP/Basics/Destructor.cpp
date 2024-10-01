@@ -30,11 +30,21 @@ class Hero
     }
     
     // Copy Constructor
+    // Hero ( Hero &obj) // because it creates the loop of calling constructor again again and again making new object
+    // {
+    //     cout << "Copy Constructor called" << endl;
+    //    this->health = health;
+    //    this->level = level ;
+    // }
+
+    // Deep Copy
     Hero ( Hero &obj) // because it creates the loop of calling constructor again again and again making new object
     {
-        cout << "Copy Constructor called" << endl;
-       this->health = health;
-       this->level = level ;
+       char * ch = new char [strlen( obj.name) + 1 ] ;
+       strcpy( ch , obj.name );  // copies C-String  int to array
+       this->name = ch ;
+       this->health = obj.health;
+       this->level = obj.level ;
     }
 
     // In C++ using pass by value call copy constructor to make copy of object 
@@ -74,31 +84,23 @@ class Hero
       strcpy( this->name , name );
     }
 
+    ~Hero( )
+    {
+        cout << "Destructor called "<< endl;
+    }
+
 } ;
 
 int main ( )
 {  
-    Hero hero1;
-    hero1.setHealth(12);
-    hero1.setLevel ('D');
-    char name [7] = "John";
-    hero1.setName(name);
-    hero1.print();
-
-   // use default copy constructor
-    Hero hero2(hero1);
-  //  Hero hero2 = hero1; // another way of writing
+    //static 
+    Hero a ;
     
-    hero2.print( );
-    hero1.name[0]='G';
-    hero1.print( ) ;
+    // Dynamic
+    Hero *b = new Hero ( ) ;
+    // manually  cal destructor for dynamic 
+    delete b ;
 
-    //Hero JohnWick(70,'C') ;
-    //JohnWick.print( );
-
-    // Copy Constructor
-    //Hero DonneyYen(JohnWick);
-     //DonneyYen.print();
 
 
     return 0 ;
